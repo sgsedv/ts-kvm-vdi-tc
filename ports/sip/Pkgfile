@@ -1,0 +1,19 @@
+# Description: automatically generating Python bindings for C and C++ libraries - only bindings for python 2.7
+# URL:         http://www.riverbankcomputing.co.uk/software/pyqt/intro
+# Maintainer:  Daryl Fonseca-Holt, wyatt at prairieturtle dot ca
+# Packager:
+# Depends:     python
+
+name=sip
+version=4.19.2
+release=1
+source=(http://sourceforge.net/projects/pyqt/files/$name/$name-$version/$name-$version.tar.gz)
+
+build() {
+        cd $name-$version
+        /usr/bin/python configure.py \
+                --incdir=$(python -c "import sys;print '%s/include/python%d.%d-current' % (sys.prefix, sys.version_info[0], sys.version_info[1])")
+        make
+        make DESTDIR=$PKG install
+
+}

@@ -1,0 +1,19 @@
+## Description:  Python bindings for qt
+# URL:          http://www.riverbankcomputing.co.uk/software/pyqt/intro
+# Depends on:   qt4 sip
+
+name=pyqt4
+version=4.12
+release=1
+source=(http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-$version/PyQt4_gpl_x11-$version.tar.gz)
+
+build() {
+        cd PyQt4_gpl_x11-$version
+        export QTDIR=/usr/share/qt
+        yes yes | python configure.py
+        make
+        make DESTDIR=$PKG install
+}
+
+
+

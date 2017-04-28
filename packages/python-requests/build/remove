@@ -1,0 +1,4 @@
+!/bin/sh
+
+export PACKAGE=python-requests
+repackage -c

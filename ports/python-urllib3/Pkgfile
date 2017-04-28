@@ -1,0 +1,17 @@
+# Description: Python urllib3
+# URL:         http://python-requests.org/
+# Maintainer:  sgsedv
+# Depends on:  python python-setuptools
+
+name=python-urllib3
+version=1.21
+release=1
+source=("https://files.pythonhosted.org/packages/source/u/urllib3/urllib3-${version}.tar.gz")
+
+
+build() {
+        cd "urllib3-${version}"
+
+        /usr/bin/python setup.py build
+        /usr/bin/python setup.py install --prefix=/usr --root="${PKG}"
+}

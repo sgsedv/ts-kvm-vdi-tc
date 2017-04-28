@@ -1,0 +1,17 @@
+# Description: Python HTTP for Humans.
+# URL:         http://python-requests.org/
+# Maintainer:  manu, maraku at gmx dot com
+# Depends on:  python python-setuptools python-urllib3
+
+name=python-requests
+version=2.13.0
+release=1
+source=("https://files.pythonhosted.org/packages/source/r/requests/requests-${version}.tar.gz")
+
+
+build() {
+        cd "requests-${version}"
+
+        /usr/bin/python setup.py build
+        /usr/bin/python setup.py install --prefix=/usr --root="${PKG}"
+}
